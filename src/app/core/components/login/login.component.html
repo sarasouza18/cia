@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <div class="page-header section-dark" style="background-image: url('assets/img/bulding.jpg')">
+    <form class="card-login" [formGroup]="form" (submit)="onLogin()">
+      <!-- <div *ngIf="error" class="alert alert-danger">{{error}}</div> -->
+
+      <div class="input-group form-group-no-border">
+        <input type="text" class="form-control" placeholder="Usuário" formControlName="username">
+        <!-- <input type="text" class="form-control" placeholder="Usuário" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors.required">Digite o usuário</div>
+        </div> -->
+      </div>
+
+      <div class="input-group form-group-no-border">
+        <input type="password" class="form-control" placeholder="Senha" formControlName="password">
+        <!-- <input type="password" class="form-control" placeholder="Senha" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Digite a senha</div>
+        </div> -->
+      </div>
+
+      <button class="btn .buttom-signup btn-block btn-round" [disabled]="authenticating$ | async">Entrar</button>
+    </form>
+  </div>
+</div>

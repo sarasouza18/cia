@@ -1,0 +1,199 @@
+<div class="main">
+  <div class="margem">
+    <div class="row">
+      <div style="margin-left: auto;">
+        <div class="col">
+          <div ngbDropdown class="d-inline-block">
+            <button
+              class="btn btn-default btn-round"
+              id="dropdownBasic1"
+              ngbDropdownToggle
+            >
+              <i class="fa fa-gear"></i> Ações
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button class="dropdown-item">Action - 1</button>
+              <button class="dropdown-item">Another Action</button>
+              <button class="dropdown-item">Something else is here</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> Campanha
+        </div>
+        <div class="card-body">
+          <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="descricao">descrição</label>
+              <input
+                class="form-control"
+                id="descricao"
+                name="descricao"
+                formControlName="descricao"
+                placeholder="descrição"
+              />
+            </div>
+            <div class="row">
+              <div class="form-group col-sm-2">
+                <label for="data_inicial">Data Inicial</label>
+                <input
+                  class="form-control"
+                  id="data_inicial"
+                  name="data_inicial"
+                  formControlName="data_inicial"
+                  type="date"
+                />
+
+                <br />
+              </div>
+              <div class="form-group col-sm-2">
+                <label for="data_final">Data Final</label>
+                <input
+                  class="form-control"
+                  id="data_final"
+                  name="data_final"
+                  formControlName="data_final"
+                  type="date"
+                />
+              </div>
+              <div class="form-group col-sm-1">
+                <label for="franqueador_id">Franqueador id</label>
+                <input
+                  class="form-control"
+                  id="franqueador_id"
+                  name="franqueador_id"
+                  formControlName="franqueador_id"
+                  placeholder="Franqueador id"
+                />
+              </div>
+              <div class="form-group col-sm-2">
+                <label for="referencia">Referência</label>
+                <input
+                  class="form-control"
+                  id="referencia"
+                  name="referencia"
+                  formControlName="referencia"
+                  placeholder="Referência"
+                />
+              </div>
+              <div class="form-group col-sm-2">
+                <label for="quantidade">Quantidade</label>
+                <input
+                  class="form-control"
+                  id="quantidade"
+                  name="quantidade"
+                  formControlName="quantidade"
+                  placeholder="quantidade"
+                />
+              </div>
+              <div class="form-group col-sm-2">
+                <label for="campanha_tipo_id">Tipo de campanha</label>
+                <select
+                  class="form-control"
+                  name="campanha_tipo_id"
+                  id="campanha_tipo_id"
+                  formControlName="campanha_tipo_id"
+                >
+                  <option [ngValue]="1">interna </option>
+                  <option [ngValue]="2">rebate</option>
+                  <option [ngValue]="3">trocafone</option>
+                </select>
+              </div>
+              <div class="form-group col-sm-2">
+                <label for="valor">Valor</label>
+                <input
+                  class="form-control"
+                  id="valor"
+                  name="valor"
+                  formControlName="valor"
+                  placeholder="Valor"
+                />
+              </div>
+              <div class="form-group col-sm-2">
+                <label for="desconto">Desconto</label>
+                <input
+                  class="form-control"
+                  id="desconto"
+                  name="desconto"
+                  formControlName="desconto"
+                  placeholder="Desconto"
+                />
+              </div>
+              <div class="form-group col-sm-2">
+                <label for="nd_id">Id nota de débito</label>
+                <input
+                  class="form-control"
+                  id="nd_id"
+                  name="nd_id"
+                  formControlName="nd_id"
+                  placeholder="Id nota de débito"
+                />
+              </div>
+
+              <div class="form-group col-sm-2">
+                <label for="status">Status</label>
+                <select
+                  class="form-control"
+                  id="status"
+                  name="status"
+                  formControlName="status"
+                >
+                  <option [ngValue]="Pendente">Pendente </option>
+                  <option [ngValue]="Concluido">Concluído</option>
+                  <option [ngValue]="Cancelado">Cancelado</option>
+                </select>
+              </div>
+
+              <div class="form-group col-sm-1">
+                <label for="id_microvix">Id microvix</label>
+                <input
+                  class="form-control"
+                  id="id_microvix"
+                  name="id_microvix"
+                  formControlName="id_microvix"
+                  placeholder="Id microvix"
+                />
+              </div>
+              <div class="form-group col-sm-2">
+                <label for="percentual_impostos_custo"
+                  >Custo percentual dos impostos</label
+                >
+                <input
+                  class="form-control"
+                  id="percentual_impostos_custo"
+                  name="percentual_impostos_custo"
+                  formControlName="percentual_impostos_custo"
+                  placeholder="impostos"
+                />
+              </div>
+
+              <div class="form-group col-sm-1">
+                <label for="rebate_por_target">Rebate</label>
+                <select
+                  class="form-control"
+                  name="rebate_por_target"
+                  id="rebate_por_target"
+                  formControlName="rebate_por_target"
+                >
+                  <option [ngValue]="true">Ativado </option>
+                  <option [ngValue]="false">Desativado</option>
+                </select>
+              </div>
+              <!--/.row-->
+            </div>
+
+            <button class="btn btn-success">Salvar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+.button{
+  size: 10px;
+  background-color: black;
+  border-color: black;
+  border-radius: 9%;
+  }
+  
+  .button span {
+      cursor: pointer;
+      display: inline-block;
+      transition: 0.5s;
+       right: -20px;
+    }
+    
+    
+    
+    .button:hover span {
+      padding-right: 25px;
+    }
+    

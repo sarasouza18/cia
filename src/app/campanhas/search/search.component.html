@@ -1,0 +1,293 @@
+<div class="main">
+  <div
+    class="page-header page-header-small fundo-produto"
+    style="  background-image: url('assets/img/produto.jpg')"
+  >
+    <div class="filter">
+      <div class="content-center">
+        <div class="container">
+          <h1 style="color: white;">Consulta de Campanhas</h1>
+          <br />
+          <h5 style="color: white;"></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="margem">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-2" style=" margin-left: auto;">
+          <div class="col">
+            <a routerLink="new">
+              <button type="button" class="btn btn-primary btn-round">
+                Novo
+              </button>
+            </a>
+
+            <div ngbDropdown class="d-inline-block">
+              <button
+                class="btn btn-default btn-round"
+                id="dropdownBasic1"
+                ngbDropdownToggle
+              >
+                <i class="fa fa-gear"></i> Ações
+              </button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button class="dropdown-item">Criar auditoria</button>
+                <button class="dropdown-item"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br /><br />
+      <div class="row">
+        <div class="col-md-12" style="display: flex; flex-direction: column">
+          <div style="display: flex; flex-direction: column">
+            <div>
+              <button
+                class="button  "
+                style="vertical-align:middle"
+                *ngIf="!pesquisaOpened"
+                (click)="pesquisaToggle()"
+              >
+                <span
+                  ><i class="fa fa-arrow-right" style="color: white"></i>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div
+              [ngClass]="pesquisaOpened ? 'col-md-4' : 'col-xs-2'"
+              [@sideMenuAnime]="pesquisaOpened"
+            >
+              <div class="card">
+                <div class="card-header">
+                  <strong>Pesquisa</strong>
+                  <a (click)="pesquisaToggle()">
+                    <i class="fa fa-times "></i
+                  ></a>
+                </div>
+
+                <div class="card-body">
+                  <form [formGroup]="findForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                      <label for="descricao">descrição</label>
+                      <input
+                        class="form-control"
+                        id="descricao"
+                        name="descricao"
+                        formControlName="descricao"
+                        placeholder="descrição"
+                      />
+                    </div>
+
+                    <div class="row">
+                      <div class="form-group col-sm-4">
+                        <label for="data_inicial">data Inicial</label>
+                        <input
+                          class="form-control"
+                          id="data_inicial"
+                          name="descricao"
+                          formControlName="descricao"
+                          type="date"
+                        />
+                      </div>
+                      <div class="form-group col-sm-4">
+                        <label for="data_inicial">Data Final</label>
+                        <input
+                          class="form-control"
+                          id="data_final"
+                          name="data_inicial"
+                          formControlName="data_inicial"
+                          type="date"
+                        />
+                      </div>
+                      <div class="form-group col-sm-4">
+                        <label for="franqueador_id">Franqueador id</label>
+                        <input
+                          class="datepicker form-control"
+                          id="franqueador_id"
+                          name="franqueador_id"
+                          formControlName="franqueador_id"
+                          placeholder="Franqueador id"
+                        />
+                      </div>
+                      <div class="form-group col-sm-8">
+                        <label for="referencia">Referência</label>
+                        <input
+                          class="form-control"
+                          id="referencia"
+                          name="referencia"
+                          formControlName="referencia"
+                          placeholder="Referência"
+                        />
+                      </div>
+                      <div class="form-group col-sm-4">
+                        <label for="valor">Valor</label>
+                        <input
+                          class="form-control"
+                          id="valor"
+                          name="valor"
+                          formControlName="valor"
+                          placeholder="Valor"
+                        />
+                      </div>
+                      <div class="form-group col-sm-4">
+                        <label for="desconto">Desconto</label>
+                        <input
+                          class="form-control"
+                          id="desconto"
+                          name="desconto"
+                          formControlName="desconto"
+                          placeholder="Desconto"
+                        />
+                      </div>
+                      <div class="form-group col-sm-4">
+                        <label for="id_microvix">Id microvix</label>
+                        <input
+                          class="form-control"
+                          id="id_microvix"
+                          name="id_microvix"
+                          formControlName="id_microvix"
+                          placeholder="Id microvix"
+                        />
+                      </div>
+                      <div class="form-group col-sm-4">
+                        <label for="percentual_impostos_custo"
+                          >Custo percentual dos impostos</label
+                        >
+                        <input
+                          class="form-control"
+                          id="percentual_impostos_custo"
+                          name="percentual_impostos_custo"
+                          formControlName="percentual_impostos_custo"
+                          placeholder="impostos"
+                        />
+                      </div>
+                      <div class="form-group col-sm-4">
+                        <label for="id">Id campanha</label>
+                        <input
+                          class="form-control"
+                          id="id"
+                          name="id"
+                          formControlName="id"
+                          placeholder="id"
+                        />
+                      </div>
+                      <div class="form-group col-sm-4">
+                        <label for="nd_id">Id Nd</label>
+                        <input
+                          class="form-control"
+                          id="nd_id"
+                          name="nd_id"
+                          formControlName="nd_id"
+                          placeholder="id de nd"
+                        />
+                      </div>
+                      <div class="form-group col-sm-4">
+                        <label for="status">Status</label>
+                        <input
+                          class="form-control"
+                          id="status"
+                          name="status"
+                          formControlName="status"
+                          placeholder="status"
+                        />
+                      </div>
+                    </div>
+                    <!--/.row-->
+                    <div class="col-md-12" style="margin-left:auto;">
+                      <button class="btn btn-outline-info bnt-border btn-round">
+                        Buscar
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div [ngClass]="pesquisaOpened ? 'col-md-8' : 'col-md-12'">
+              <div class="card">
+                <div class="card-header">
+                  <i class="fa fa-align-justify"></i> Campanhas
+                </div>
+                <div class=" card-body">
+                  <div class="form-group" style="overflow-x:auto;">
+                    <table class=" table table-striped ">
+                      <thead>
+                        <tr>
+                          <th>Nome</th>
+                          <th>Referencia</th>
+                          <th>Valor</th>
+                          <th>Data Inicial</th>
+
+                          <th>Data Final</th>
+                          <th>Tipo</th>
+
+                          <th>Status</th>
+
+                          <th>Ações</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr
+                          *ngFor="
+                            let campanha of (campanhas$
+                              | async
+                              | slice
+                                : (page - 1) * pageSize
+                                : (page - 1) * pageSize + pageSize)
+                          "
+                        >
+                          <td>{{ campanha.descricao }}</td>
+                          <td>{{ campanha.referencia }}</td>
+
+                          <td>{{ campanha.valor }}</td>
+                          <td>
+                            {{ campanha.data_inicial | date: 'dd/MM/yy' }}
+                          </td>
+
+                          <td>{{ campanha.data_final | date: 'dd/MM/yy' }}</td>
+                          <td>{{ campanha.campanha_tipo_id }}</td>
+
+                          <td>
+                            <span class="label label-warning">Pendente</span>
+                          </td>
+                          <td>
+                            <button
+                              class="btn btn-link button1"
+                              [routerLink]="[campanha.id, 'details']"
+                              (click)="viewDetails(campanha)"
+                              data-toggle="tooltip"
+                              data-placement="top"
+                              title="Ver detalhes"
+                            >
+                              <i
+                                class="fa fa-eye fa-3x"
+                                style="font-size:19px"
+                              ></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <ngb-pagination
+                          [(page)]="page"
+                          [pageSize]="pageSize"
+                          [maxSize]="3"
+                          [rotate]="true"
+                          [boundaryLinks]="true"
+                          [collectionSize]="(campanhas$ | async).length"
+                        ></ngb-pagination>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

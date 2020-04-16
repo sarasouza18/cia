@@ -1,0 +1,271 @@
+<div class="main">
+  <div>
+    <div class="container text-center ">
+      <h1 style="color: #66615a; ">Apuração de Campanhas</h1>
+      <br />
+      <h5 style="color: #66615a;">{{ (campanha$ | async).descricao }}</h5>
+    </div>
+
+    <div class="margem">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="col-md-6">
+            <h3><span class="label label-warning">Pendente</span></h3>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="col-md-3" style="margin-left: auto;">
+            <div ngbDropdown class="d-inline-block">
+              <button
+                class="btn btn-default btn-round"
+                id="dropdownBasic1"
+                ngbDropdownToggle
+              >
+                <i class="fa fa-gear"></i> Ações
+              </button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button class="dropdown-item">Contestar</button>
+                <button class="dropdown-item">Gerar nota de débito</button>
+                <button class="dropdown-item">Inserir dados</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <div class="row">
+        <div class="col-md-2">
+          <div class="card">
+            <div class="card-body">
+              <h5>Valor Samsung</h5>
+              <h3>R$ {{ (campanha$ | async).valor }}</h3>
+              <span class="label label-success">Correto</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card">
+            <div class="card-body">
+              <h5>Valor Varejo Mais</h5>
+              <h3>R$ {{ (campanha$ | async).valor }}</h3>
+              <span class="label label-success">Correto</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card">
+            <div class="card-body">
+              <h5>Valor do Desconto</h5>
+              <h3>
+                <i class="fa fa-tags"></i> &nbsp;R$
+                {{ (campanha$ | async).desconto }}
+              </h3>
+              <span class="label label-success">Correto</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card">
+            <div class="card-body">
+              <h5>Quantidade Varejo Mais</h5>
+              <h3>
+                <i class="fa fa-sort-amount-up"></i> &nbsp;{{
+                  (campanha$ | async).quantidade
+                }}
+              </h3>
+              <span class="label label-success">Correto</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card">
+            <div class="card-body">
+              <h5>Quantidade Samsung</h5>
+              <h3>
+                <i class="fa fa-sort-amount-up"></i> &nbsp;{{
+                  (campanha$ | async).quantidade
+                }}
+              </h3>
+              <span class="label label-success">Correto</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card">
+            <div class="card-body">
+              <h5>Lojas</h5>
+              <h3><i class="fa fa-store"></i> &nbsp; 3</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9">
+          <div class="card">
+            <div class="card-header">
+              <i class="fa fa-align-justify"></i> Produtos
+            </div>
+            <div class=" card-body">
+              <div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      name="active"
+                      id="active"
+                      type="checkbox"
+                      [(ngModel)]="one"
+                    />
+                    Com divergência &nbsp; <span class="form-check-sign"></span>
+                  </label>
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      name="active"
+                      id="active"
+                      type="checkbox"
+                      [(ngModel)]="two"
+                    />
+                    Sem divergência <span class="form-check-sign"></span>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="form-group"
+                style="overflow-x:auto; overflow:scroll;height:400px;width:100%;"
+              >
+                <table class=" table table-striped ">
+                  <thead>
+                    <tr>
+                      <th>Nome</th>
+                      <th>Referencia</th>
+                      <th>Qtd Samsung</th>
+                      <th>Qtd V+</th>
+                      <th>Valor Samsung</th>
+                      <th>Valor V+</th>
+                      <th>Divergência qtd</th>
+                      <th>Divergência Valor</th>
+
+                      <th>Status</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      *ngFor="
+                        let campanhaMaterial of (campanhasMaterial$ | async)
+                      "
+                    >
+                      <!--</tr>
+                  <tr *ngIf="campanha.id == campanhaMaterial.campanha_id">-->
+                      <td>{{ campanhaMaterial.quantidade }}</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+
+                      <td><span class="label label-warning">Pendente</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div
+            class="card"
+            style="overflow:scroll;height:400px;width:100%;overflow:auto"
+          >
+            <div class="card-header">
+              <i class="fa fa-history"></i><strong> Histórico</strong> <br />
+              <strong>
+                Data Inicial:
+                {{ (campanha$ | async).data_inicial | date: 'dd/MM/yy' }}
+              </strong>
+            </div>
+            <div class="card-body" style="overflow: auto;">
+              <div class="timeline">
+                <ul>
+                  <li>
+                    <div class="bullet green"></div>
+                    <div class="time">
+                      {{ (campanha$ | async).data_inicial | date: 'medium' }}
+                    </div>
+                    <div class="desc">
+                      <h3>Campanha Iniciada</h3>
+                      <h4>Realizado por usuário: financeiro</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="bullet pink"></div>
+                    <div class="time">02/12/18 - 5pm</div>
+                    <div class="desc">
+                      <h3>Campanha conferida</h3>
+                      <h4>Realizado por usuário: financeiro</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="bullet green"></div>
+                    <div class="time">03/12/18 - 3 - 4pm</div>
+                    <div class="desc">
+                      <h3>Nota de débito gerada e enviada para a samsung</h3>
+                      <h4>Realizado por usuário: administrador</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="bullet orange"></div>
+                    <div class="time">04/12/18 -12pm</div>
+                    <div class="desc">
+                      <h3>Samsung dá retorno</h3>
+                      <h4>Realizado por usuário: financeiro</h4>
+
+                      <h4>Nota de débito aceita</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="bullet green"></div>
+                    <div class="time">05/12/18 -9 - 11am</div>
+                    <div class="desc">
+                      <h3>Samsung realiza pagamento</h3>
+                      <h4>Cadastrado por usuário: administrador</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="bullet green"></div>
+                    <div class="time">05/12/18 -9 - 11am</div>
+                    <div class="desc">
+                      <h3>Varejo mais recebe pagamento</h3>
+                      <h4>pagamento contabilizado com sucesso</h4>
+                      <h4>Cadastrado por usuário: financeiro</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="bullet pink"></div>
+                    <div class="time">
+                      {{ (campanha$ | async).data_final | date: 'medium' }}
+                    </div>
+                    <div class="desc">
+                      <h3>Campanha Finalizada</h3>
+                      <h4>Realizado por usuário: financeiro</h4>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--
+      <div class="row">
+        <button class="btn btn-primary btn-round">Gerar nota de débito</button>
+        <button class="btn btn-round">Contestar</button>
+      </div>
+      -->
+    </div>
+  </div>
+</div>
